@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123B2B">
+  <meta name="description" content="Xis da Gringa: desde 1975 fazendo parte da história de Caxias do Sul. Conheça nossos lanches e peça online.">
+  <title>Xis da Gringa | Tradição em Caxias do Sul desde 1975</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lora:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#123B2B',
+            redbrand: '#CB212A',
+            cream: '#F5F2EC',
+            graphite: '#292D29',
+            mint: '#E8F0E8'
+          },
+          fontFamily: {
+            display: ['Alfa Slab One', 'serif'],
+            condensed: ['Oswald', 'sans-serif'],
+            body: ['Lora', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --forest: #123B2B;
+      --red: #CB212A;
+      --cream: #F5F2EC;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { background: var(--cream); color: var(--forest); }
+    ::selection { background: #CB212A; color: white; }
+    :focus-visible {
+      outline: 3px solid #CB212A;
+      outline-offset: 4px;
+    }
+    .display { font-family: 'Alfa Slab One', serif; }
+    .condensed { font-family: 'Oswald', sans-serif; }
+    .bodytext { font-family: 'Lora', serif; }
+    .italian-bar {
+      height: 7px;
+      background: linear-gradient(to right,
+        #04894A 0 33.33%,
+        white 33.33% 66.66%,
+        #CB212A 66.66% 100%);
+    }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: .6rem;
+      min-height: 52px;
+      padding: .85rem 1.5rem;
+      border-radius: 6px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background-color .2s, transform .2s, box-shadow .2s;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn-red {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 4px 0 #8D171F;
+    }
+    .btn-red:hover { background: #A91B23; }
+    .btn-outline {
+      border: 2px solid var(--forest);
+      color: var(--forest);
+    }
+    .btn-outline:hover { background: #E8F0E8; }
+    .eyebrow {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .food-card {
+      background: white;
+      border: 1px solid #DBE2DC;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .food-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(18,59,43,.10);
+    }
+    .food-image {
+      background: #E8E8E1;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .food-card .card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid #8DADA0;
+      border-radius: 4px;
+      padding: .3rem .6rem;
+      font-family: 'Oswald', sans-serif;
+      color: var(--forest);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .hero-art {
+      position: relative;
+      border-radius: 26px;
+      padding: 2rem;
+      background: radial-gradient(
+        circle at 50% 40%, #FDFCF8, #E7EDE4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+min-height: 340px;
+    }
+    .hero-burger {
+      font-size: clamp(7rem, 17vw, 13rem);
+      line-height: 1.2;
+      filter: drop-shadow(0 14px 12px rgba(0,0,0,.14));
+    }
+    .section-title {
+      font-family: 'Alfa Slab One', serif;
+      letter-spacing: -.035em;
+      line-height: 1.15;
+    }
+    .line {
+      width: 84px;
+      height: 4px;
+      background: linear-gradient(to right,
+        #04894A 0 50%, #CB212A 50% 100%);
+    }
+    .nav-link {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      font-weight: 500;
+    }
+    .nav-link:hover { color: var(--red); }
+    .checker {
+      height: 18px;
+      background-color: white;
+      background-image:
+        linear-gradient(45deg,#CB212A 25%,transparent 25%),
+        linear-gradient(-45deg,#CB212A 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,#CB212A 75%),
+        linear-gradient(-45deg,transparent 75%,#CB212A 75%);
+      background-size: 22px 22px;
+      background-position: 0 0,0 11px,11px -11px,-11px 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Xis da Gringa",
+    "description": "Lancheria tradicional de Caxias do Sul, fundada em 1975.",
+    "servesCuisine": "Xis gaúcho e lanches",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Carlos Bianchini, 694",
+      "addressLocality": "Caxias do Sul",
+      "addressRegion": "RS",
+      "postalCode": "95013-000",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/xisdagringaoficial/"
+    ],
+    "url": "https://xisdagringa.wdelivery.com.br/"
+  }
+  </script>
+</head>
+
+<body class="font-body antialiased">
+
+  <a href="#conteudo"
+     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:p-4">
+    Pular para o conteúdo
+  </a>
+
+  <div class="italian-bar" aria-hidden="true"></div>
+
+  <!-- CABEÇALHO -->
+  <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-forest/10">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <nav class="flex items-center justify-between h-20 gap-5"
+           aria-label="Navegação principal">
+
+        <a href="#inicio" class="flex flex-col leading-tight"
+           aria-label="Xis da Gringa, voltar ao início">
+          <span class="display text-forest text-lg md:text-xl">
+            GRINGA<span class="text-redbrand">.</span>
+          </span>
+          <span class="condensed text-[10px] tracking-[.2em] uppercase">
+            Caxias do Sul · Desde 1975
+          </span>
+        </a>
+
+        <div class="hidden lg:flex gap-8 items-center">
+          <a class="nav-link" href="#cardapio">Cardápio</a>
+          <a class="nav-link" href="#historia">Nossa história</a>
+          <a class="nav-link" href="#tradicao">Tradição</a>
+          <a class="nav-link" href="#localizacao">Localização</a>
+        </div>
+
+        <a class="btn btn-red hidden sm:inline-flex !min-h-[43px] !text-sm"
+           href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+           target="_blank" rel="noopener noreferrer">
+          Pedir agora ↗️
+        </a>
+
+        <button id="menuToggle"
+                class="lg:hidden min-w-11 min-h-11 flex items-center justify-center rounded-md border border-forest/20"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="mobileMenu">
+          <span id="menuIcon" aria-hidden="true" class="text-2xl">☰</span>
+        </button>
+      </nav>
+<div id="mobileMenu" hidden
+           class="lg:hidden border-t border-forest/10 py-5">
+        <div class="flex flex-col gap-5">
+          <a class="nav-link" href="#cardapio">Cardápio</a>
+          <a class="nav-link" href="#historia">Nossa história</a>
+          <a class="nav-link" href="#tradicao">Tradição</a>
+          <a class="nav-link" href="#localizacao">Localização</a>
+          <a class="nav-link text-redbrand" href="#pedir">Fazer pedido</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section id="inicio" class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 pt-14 pb-20 lg:pt-24 lg:pb-28">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <div class="text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 border border-forest/20 bg-white rounded-full mb-7">
+              <span class="text-redbrand">★</span>
+              <span class="eyebrow text-xs">Tradição na Serra desde 1975</span>
+            </div>
+
+            <h1 class="section-title text-4xl sm:text-5xl xl:text-[4.3rem]">
+              O VERDADEIRO
+              <span class="block text-redbrand">XIS DA GRINGA.</span>
+            </h1>
+
+            <div class="line mx-auto lg:mx-0 my-7"></div>
+
+            <p class="text-lg md:text-xl leading-relaxed text-forest/85 max-w-xl mx-auto lg:mx-0">
+              Há mais de 50 anos fazendo parte da história de
+              Caxias do Sul. Comida farta, tradição de família
+              e aquele sabor que atravessa gerações.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-9">
+              <a class="btn btn-red"
+                 href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+                 target="_blank" rel="noopener noreferrer">
+                Fazer meu pedido ↗️
+              </a>
+              <a class="btn btn-outline" href="#cardapio">
+                Ver os destaques
+              </a>
+            </div>
+
+            <p class="mt-7 font-condensed text-sm tracking-widest uppercase text-forest/60">
+              Caxias do Sul · Serra Gaúcha · Rio Grande do Sul
+            </p>
+          </div>
+
+          <div class="hero-art">
+            <div class="absolute top-5 right-5 md:top-8 md:right-8
+                        bg-redbrand text-white rounded-full
+                        w-24 h-24 md:w-28 md:h-28
+                        flex flex-col items-center justify-center
+                        text-center rotate-12 shadow-lg">
+              <span class="display text-xl md:text-2xl">1975</span>
+              <span class="condensed text-xs uppercase tracking-wider">Desde</span>
+            </div>
+
+            <div class="hero-burger" role="img" aria-label="Ilustração de hambúrguer">
+              🍔
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg px-7 py-4 text-center">
+              <p class="display text-base md:text-xl">
+                UM CLÁSSICO DE CAXIAS
+              </p>
+              <p class="condensed tracking-widest uppercase text-redbrand mt-1 text-sm">
+                Feito para matar a fome de verdade
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="checker" aria-hidden="true"></div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="cardapio" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+        <div class="text-center mb-12">
+          <p class="eyebrow text-green-700 text-sm mb-3">Do balcão pra ti</p>
+          <h2 class="section-title text-3xl md:text-5xl">OS CAMPEÕES DA CASA</h2>
+          <div class="line mx-auto my-6"></div>
+          <p class="max-w-2xl mx-auto text-forest/75 leading-relaxed">
+            Clássicos para quem conhece o verdadeiro xis da Serra.
+            Confira as opções e os valores atualizados no nosso cardápio online.
+          </p>
+        </div>
+<div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+          <article class="food-card">
+            <div class="flex items-center justify-center bg-mint h-52 text-8xl"
+                 role="img" aria-label="Ilustração de xis">🍔</div>
+            <div class="card-content">
+              <span class="tag self-start mb-4">O maior da casa</span>
+              <h3 class="font-condensed text-2xl font-semibold uppercase mb-3">
+                X Big Gringa
+              </h3>
+              <p class="text-forest/75 text-sm leading-relaxed mb-6">
+                Filé mignon, peito de galinha, lombo, coração, picanha,
+                bacon, calabresa, presunto, queijo e ovo.
+              </p>
+              <a class="btn btn-outline mt-auto !text-sm"
+                 href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Ver X Big Gringa no cardápio online">
+                Ver no cardápio ↗️
+              </a>
+            </div>
+          </article>
+
+          <article class="food-card">
+            <div class="flex items-center justify-center bg-mint h-52 text-8xl"
+                 role="img" aria-label="Ilustração de xis">🍔</div>
+            <div class="card-content">
+              <span class="tag self-start mb-4">Favorito da casa</span>
+              <h3 class="font-condensed text-2xl font-semibold uppercase mb-3">
+                X Bacon à Moda da Casa
+              </h3>
+              <p class="text-forest/75 text-sm leading-relaxed mb-6">
+                Bife de hambúrguer, bacon, presunto, queijo e ovo,
+                com o buffet completo da casa.
+              </p>
+              <a class="btn btn-outline mt-auto !text-sm"
+                 href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Ver X Bacon à Moda da Casa no cardápio online">
+                Ver no cardápio ↗️
+              </a>
+            </div>
+          </article>
+
+          <article class="food-card">
+            <div class="flex items-center justify-center bg-mint h-52 text-8xl"
+                 role="img" aria-label="Ilustração de xis">🍔</div>
+            <div class="card-content">
+              <span class="tag self-start mb-4">Na chapa</span>
+              <h3 class="font-condensed text-2xl font-semibold uppercase mb-3">
+                X Picanha
+              </h3>
+              <p class="text-forest/75 text-sm leading-relaxed mb-6">
+                Picanha em tiras, presunto, queijo, maionese e
+                buffet da casa no pão de xis.
+              </p>
+              <a class="btn btn-outline mt-auto !text-sm"
+                 href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Ver X Picanha no cardápio online">
+                Ver no cardápio ↗️
+              </a>
+            </div>
+          </article>
+<article class="food-card">
+            <div class="flex items-center justify-center bg-mint h-52 text-8xl"
+                 role="img" aria-label="Ilustração de cachorro-quente">🌭</div>
+            <div class="card-content">
+              <span class="tag self-start mb-4">Clássico</span>
+              <h3 class="font-condensed text-2xl font-semibold uppercase mb-3">
+                Cachorro à Calabresa
+              </h3>
+              <p class="text-forest/75 text-sm leading-relaxed mb-6">
+                Pão prensado, duas linguiças calabresas,
+                molho de tomate e queijo ralado.
+              </p>
+              <a class="btn btn-outline mt-auto !text-sm"
+                 href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Ver Cachorro à Calabresa no cardápio online">
+                Ver no cardápio ↗️
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="text-center italic text-forest/70 mt-10">
+          Tem muito mais: opções vegetarianas, doces e outros clássicos.
+        </p>
+
+        <div class="text-center mt-6">
+          <a class="btn btn-red"
+             href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+             target="_blank" rel="noopener noreferrer">
+            Conhecer o cardápio completo ↗️
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTÓRIA -->
+    <section id="historia" class="py-20 lg:py-28 bg-forest text-white">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <div class="order-2 lg:order-1">
+          <div class="relative rounded-2xl bg-white/10 border border-white/20
+                      min-h-[340px] flex flex-col justify-center items-center
+                      p-10 text-center">
+            <div class="text-6xl mb-6" aria-hidden="true">🍽</div>
+            <p class="eyebrow text-white/70 mb-3">Uma história de família</p>
+            <span class="display text-6xl md:text-8xl text-white">1975</span>
+            <p class="font-condensed text-xl tracking-widest uppercase mt-6">
+              Do Texakão ao Xis da Gringa
+            </p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <p class="eyebrow text-[#B8D5BC] text-sm mb-4">Nossa história</p>
+          <h2 class="section-title text-3xl md:text-5xl leading-tight">
+            MAIS QUE UM XIS.
+            <span class="block text-[#E5C8AE]">UMA TRADIÇÃO.</span>
+          </h2>
+          <div class="line my-7"></div>
+
+          <div class="space-y-5 leading-relaxed text-white/85">
+            <p>
+              Em 8 de fevereiro de 1975, começava uma história que
+              se tornaria parte da memória gastronômica de Caxias do Sul.
+            </p>
+            <p>
+              Tudo começou com um trailer chamado Texakão, próximo
+              ao posto Texaco, na esquina da Garibaldi com a Tronca.
+            </p>
+            <p>
+              O apelido "Gringa", associado a Lourena Pola Fiorio
+              e às raízes italianas da região, acabou dando nome
+              a uma das lancherias mais tradicionais da cidade.
+            </p>
+            <p>
+              Daquele início até os dias atuais, a marca se mantém
+              ligada à tradição familiar e ao sabor do xis caxiense.
+            </p>
+          </div>
+
+          <div class="mt-9 border-l-4 border-[#E5C8AE] pl-5">
+            <p class="font-condensed text-xl uppercase tracking-wide">
+              Caxias do Sul. Nossa origem, nossa casa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRADIÇÃO -->
+    <section id="tradicao" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+<div>
+            <p class="eyebrow text-green-700 text-sm mb-4">
+              O xis do jeito da Serra
+            </p>
+            <h2 class="section-title text-3xl md:text-5xl">
+              NA CHAPA,<br>
+              <span class="text-redbrand">NO CAPRICHO.</span>
+            </h2>
+            <div class="line my-7"></div>
+            <p class="text-lg text-forest/80 leading-relaxed mb-5">
+              Aqui, o xis faz parte de um ritual conhecido por
+              gerações de clientes: o lanche preparado na chapa
+              e os complementos escolhidos no balcão.
+            </p>
+            <p class="text-forest/75 leading-relaxed">
+              Maionese, milho, ervilha, pepino, batata palha,
+              tomate e alface ajudam a transformar o lanche
+              em uma experiência com a cara de Caxias.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-8">
+              <span class="tag">Tradição caxiense</span>
+              <span class="tag">Buffet de complementos</span>
+              <span class="tag">Feito na chapa</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-forest/10 bg-white
+                      p-7 md:p-10 shadow-sm">
+            <p class="eyebrow text-sm text-center mb-8">
+              O que faz parte dessa tradição?
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-cream p-6 rounded-lg text-center">
+                <div class="text-4xl mb-3" aria-hidden="true">🥬</div>
+                <p class="condensed text-lg font-semibold uppercase">Complementos</p>
+              </div>
+              <div class="bg-cream p-6 rounded-lg text-center">
+                <div class="text-4xl mb-3" aria-hidden="true">🍅</div>
+                <p class="condensed text-lg font-semibold uppercase">Ingredientes</p>
+              </div>
+              <div class="bg-cream p-6 rounded-lg text-center">
+                <div class="text-4xl mb-3" aria-hidden="true">🍔</div>
+                <p class="condensed text-lg font-semibold uppercase">Xis na chapa</p>
+              </div>
+              <div class="bg-cream p-6 rounded-lg text-center">
+                <div class="text-4xl mb-3" aria-hidden="true">❤️</div>
+                <p class="condensed text-lg font-semibold uppercase">Tradição</p>
+              </div>
+            </div>
+            <p class="text-center text-sm text-forest/65 mt-6">
+              Uma experiência que faz parte da história gastronômica da Serra Gaúcha.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PEDIDOS -->
+    <section id="pedir" class="bg-redbrand text-white py-20">
+      <div class="max-w-4xl mx-auto px-5 text-center">
+        <p class="eyebrow text-white/80 text-sm mb-4">Deu fome?</p>
+        <h2 class="section-title text-3xl md:text-5xl mb-6">
+          O TEU XIS ESTÁ TE ESPERANDO.
+        </h2>
+        <p class="text-lg text-white/90 max-w-2xl mx-auto mb-9">
+          Acesse nosso cardápio online, escolha o teu favorito
+          e faça o pedido. Para dúvidas ou atendimento,
+          também estamos no WhatsApp.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a class="btn bg-white text-redbrand hover:bg-cream"
+             href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+             target="_blank" rel="noopener noreferrer">
+            Pedir pelo WDelivery ↗️
+          </a>
+          <a class="btn border-2 border-white text-white hover:bg-white/10"
+             href="https://wa.me/5554999733856?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Xis%20da%20Gringa."
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Entrar em contato pelo WhatsApp">
+            Falar pelo WhatsApp ↗️
+          </a>
+        </div>
+      </div>
+    </section>
+<!-- FAQ -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-5">
+        <p class="eyebrow text-green-700 text-center text-sm mb-3">
+          Informações úteis
+        </p>
+        <h2 class="section-title text-3xl text-center mb-10">
+          DÚVIDAS FREQUENTES
+        </h2>
+
+        <div class="space-y-4">
+          <details class="group rounded-lg border border-forest/15 p-5">
+            <summary class="font-condensed uppercase text-lg font-medium cursor-pointer flex justify-between gap-3">
+              Como faço um pedido?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-4 text-forest/75 leading-relaxed">
+              Clique em "Fazer meu pedido". Você será direcionado
+              ao cardápio do WDelivery, onde poderá consultar
+              as opções disponíveis e finalizar a compra.
+            </p>
+          </details>
+
+          <details class="group rounded-lg border border-forest/15 p-5">
+            <summary class="font-condensed uppercase text-lg font-medium cursor-pointer flex justify-between gap-3">
+              Onde fica o Xis da Gringa?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-4 text-forest/75 leading-relaxed">
+              Na Rua Carlos Bianchini, 694, bairro Marechal
+              Floriano, em Caxias do Sul, Rio Grande do Sul.
+            </p>
+          </details>
+
+          <details class="group rounded-lg border border-forest/15 p-5">
+            <summary class="font-condensed uppercase text-lg font-medium cursor-pointer flex justify-between gap-3">
+              Os preços estão atualizados?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-4 text-forest/75 leading-relaxed">
+              Consulte os preços e a disponibilidade dos produtos
+              diretamente no cardápio online do WDelivery.
+            </p>
+          </details>
+
+          <details class="group rounded-lg border border-forest/15 p-5">
+            <summary class="font-condensed uppercase text-lg font-medium cursor-pointer flex justify-between gap-3">
+              Posso fazer perguntas antes de pedir?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-4 text-forest/75 leading-relaxed">
+              Sim. Você pode utilizar o canal de atendimento
+              disponível pelo WhatsApp.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section id="localizacao" class="py-20 lg:py-28 bg-cream">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div>
+            <p class="eyebrow text-green-700 text-sm mb-4">
+              Venha nos visitar
+            </p>
+            <h2 class="section-title text-3xl md:text-5xl mb-7">
+              A GRINGA TE ESPERA.
+            </h2>
+
+            <address class="not-italic text-lg leading-relaxed mb-6">
+              <strong>Rua Carlos Bianchini, 694</strong><br>
+              Bairro Marechal Floriano<br>
+              Caxias do Sul — RS<br>
+              CEP 95013-000
+            </address>
+
+            <p class="text-forest/70 mb-8">
+              Consulte o atendimento e os horários disponíveis
+              nos canais oficiais antes de sair de casa.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a class="btn btn-red"
+                 href="https://www.google.com/maps/search/?api=1&query=Rua+Carlos+Bianchini+694+Caxias+do+Sul+RS"
+                 target="_blank" rel="noopener noreferrer">
+                Como chegar ↗️
+              </a>
+              <a class="btn btn-outline"
+                 href="https://www.instagram.com/xisdagringaoficial/"
+                 target="_blank" rel="noopener noreferrer">
+                Nosso Instagram ↗️
+              </a>
+            </div>
+          </div>
+<div class="rounded-xl overflow-hidden border border-forest/15 bg-white shadow-sm">
+            <iframe
+              title="Mapa de localização do Xis da Gringa"
+              src="https://www.google.com/maps?q=Rua%20Carlos%20Bianchini%20694%20Caxias%20do%20Sul%20RS&output=embed"
+              width="100%"
+              height="390"
+              style="border:0;display:block"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-forest text-white pb-24 sm:pb-0">
+    <div class="italian-bar" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14">
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <div>
+          <h2 class="display text-2xl">GRINGA<span class="text-red-400">.</span></h2>
+          <p class="condensed uppercase tracking-widest text-xs mt-2">
+            Caxias do Sul · Desde 1975
+          </p>
+          <p class="text-white/70 text-sm leading-relaxed mt-5">
+            Uma história de família, tradição e sabor
+            que atravessa gerações na Serra Gaúcha.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="condensed font-semibold uppercase text-xl mb-5">
+            Navegação
+          </h3>
+          <div class="flex flex-col gap-3 text-white/80">
+            <a href="#inicio" class="hover:text-white">Início</a>
+            <a href="#cardapio" class="hover:text-white">Cardápio</a>
+            <a href="#historia" class="hover:text-white">Nossa história</a>
+            <a href="#localizacao" class="hover:text-white">Localização</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="condensed font-semibold uppercase text-xl mb-5">
+            Entre em contato
+          </h3>
+          <p class="text-white/75 text-sm mb-4">
+            Rua Carlos Bianchini, 694<br>
+            Caxias do Sul — RS
+          </p>
+          <a class="block underline underline-offset-4 mb-3"
+             href="https://www.instagram.com/xisdagringaoficial/"
+             target="_blank" rel="noopener noreferrer">
+            Instagram oficial ↗️
+          </a>
+          <a class="block underline underline-offset-4"
+             href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+             target="_blank" rel="noopener noreferrer">
+            Cardápio online ↗️
+          </a>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/15 mt-12 pt-6 flex flex-col sm:flex-row
+                  justify-between gap-3 text-xs text-white/60">
+        <p>© <span id="currentYear"></span> Xis da Gringa.</p>
+        <p>Tradição de Caxias do Sul desde 1975.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CTA FIXO NO CELULAR -->
+  <div class="sm:hidden fixed bottom-0 inset-x-0 z-40
+              bg-white/95 backdrop-blur-md border-t border-forest/10
+              p-3 shadow-[0_-5px_20px_rgba(0,0,0,.08)]">
+    <a class="btn btn-red w-full"
+       href="https://xisdagringa.wdelivery.com.br/caxias-do-sul/restaurantes/xis-da-gringa"
+       target="_blank" rel="noopener noreferrer">
+      🍔 Fazer meu pedido ↗️
+    </a>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    function closeMenu() {
+      mobileMenu.hidden = true;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menu');
+      menuIcon.textContent = '☰';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const open = menuToggle.getAttribute('aria-expanded') === 'true';
+
+      mobileMenu.hidden = open;
+      menuToggle.setAttribute('aria-expanded', String(!open));
+      menuToggle.setAttribute('aria-label', open ? 'Abrir menu' : 'Fechar menu');
+      menuIcon.textContent = open ? '☰' : '✕';
+    });
+mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    document.getElementById('currentYear').textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
